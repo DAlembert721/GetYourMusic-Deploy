@@ -3,7 +3,13 @@
         <div style="text-align: center">
             <div>
                 <v-card class="card" style="height: 450px">
-                    <v-card-title>{{musician.firstName}} {{musician.lastName}}</v-card-title>
+                    <div class="d-flex align-center">
+                        <v-card-title>{{musician.firstName}} {{musician.lastName}}</v-card-title>
+                        <v-btn v-if="!inOtherMusicianProfile" color="purple" outlined x-small bottom
+                               @click="openUpdatePhotoDialog">
+                            Update photo
+                        </v-btn>
+                    </div>
                     <v-img v-if="musician.photoUrl !== null" :src="musician.photoUrl"
                            alt="user photo"
                            height="200px"
@@ -36,7 +42,8 @@
                             item-height="200"
                     >
                         <template v-slot="{ item }">
-                            <MusicianPublicationForProfile :inOtherMusicianProfile="inOtherMusicianProfile" :item="item"></MusicianPublicationForProfile>
+                            <MusicianPublicationForProfile :inOtherMusicianProfile="inOtherMusicianProfile"
+                                                           :item="item"></MusicianPublicationForProfile>
                             <v-divider></v-divider>
                         </template>
 
@@ -134,6 +141,10 @@
                 </v-btn>
             </template>
         </v-snackbar>
+        <UpdatePhotoForm :dialog="updatePhotoDialog"
+                         v-on:close-success-photo-dialog="updatePhoto"
+                         @close-photo-dialog="updatePhotoDialog=false"></UpdatePhotoForm>
+
         <ContractCreationDialog :dataToContractCreation="dataToContractCreation" :dialog="dialog"
                                 @dialog-changed="setDialog"
                                 @contract-created="snackbar = true"></ContractCreationDialog>
@@ -172,10 +183,12 @@
     import InstrumentDataService from "../../services/InstrumentDataService";
     import UpdatePhoneForm from "../forms/UpdatePhoneForm";
     import MusicianPublicationForProfile from "./MusicianPublicationForProfile";
+    import UpdatePhotoForm from "../forms/UpdatePhotoForm";
 
     export default {
         name: "MusicianProfile",
         components: {
+            UpdatePhotoForm,
             MusicianPublicationForProfile,
             ContractCreationDialog,
             UpdateDescriptionForm,
@@ -206,6 +219,7 @@
             allInstruments: [],
             contacts: [],
             viewCommentDialog: false,
+            updatePhotoDialog: false
         }),
         props: {
             account: null,
@@ -219,6 +233,9 @@
             }
         },
         methods: {
+            openUpdatePhotoDialog() {
+                this.updatePhotoDialog = true;
+            },
             retrieveMusician() {
                 let id = localStorage.getItem('id');
                 MusicianDataService.get(id)
@@ -279,20 +296,29 @@
                     });
 
             },
+            updatePhoto(data) {
+                const updateMusician = {
+                    phone: this.musician.phone,
+                    description: this.musician.description,
+                    photoUrl: data
+                };
+
+                MusicianDataService.updateMusician(this.musician.userId, updateMusician)
+                    .then(() => {
+                        window.location.reload()
+                    })
+                    .catch(e => {
+                        console.log(e);
+                    })
+            },
             updateDescription(data) {
                 const updateMusician = {
-                    firstName: this.musician.firstName,
-                    lastName: this.musician.lastName,
                     phone: this.musician.phone,
-                    personalWeb: this.musician.personalWeb,
-                    accountType: this.musician.accountType,
-                    districtId: 1,
                     photoUrl: this.musician.photoUrl,
                     description: data,
-                    rating: 0
                 }
-                MusicianDataService.put(this.musician.userId, updateMusician)
-                    .then(() => {})
+                MusicianDataService.updateMusician(this.musician.userId, updateMusician)
+                    .then(() => { window.location.reload()})
                     .catch(e => {
                         console.log(e);
                     })
@@ -336,19 +362,13 @@
             },
             updatePhone(data) {
                 const updateMusician = {
-                    firstName: this.musician.firstName,
-                    lastName: this.musician.lastName,
                     phone: data,
-                    personalWeb: this.musician.personalWeb,
-                    accountType: this.musician.accountType,
-                    districtId: 1,
-                    photoUrl: this.musician.photoUrl,
                     description: this.musician.description,
-                    rating: 0
+                    photoUrl: this.musician.photoUrl
                 }
-                MusicianDataService.put(this.musician.userId, updateMusician)
-                    .then(response => {
-                        console.log(response.message);
+                MusicianDataService.updateMusician(this.musician.userId, updateMusician)
+                    .then(() => {
+                        window.location.reload()
                     })
                     .catch(e => {
                         console.log(e);

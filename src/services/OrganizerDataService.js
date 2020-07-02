@@ -13,14 +13,8 @@ class OrganizerDataService {
             }
         });
     }
-    create(data) {
-        return http.post("/Organizers", data);
-    }
-    update(id, data) {
-        return http.put(`/Organizers/${id}`, data);
-    }
-    delete(id) {
-        return http.delete(`/Organizers/${id}`);
+    updateOrganizer(id,data) {
+        return http.put(`/api/organizers/${id}`,data)
     }
 }
 export default new OrganizerDataService();

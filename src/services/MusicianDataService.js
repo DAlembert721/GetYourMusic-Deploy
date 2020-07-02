@@ -27,7 +27,9 @@ class MusicianDataService {
             headers: {'Authorization': 'Bearer ' + localStorage.getItem('token')
             }
         });
-
+    }
+    updateMusician(id,data) {
+        return http.put(`/api/Musicians/${id}`,data)
     }
 }
 export default new MusicianDataService();
