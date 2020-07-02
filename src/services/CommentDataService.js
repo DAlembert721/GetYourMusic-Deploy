@@ -1,8 +1,8 @@
 import http from '../http-common';
 
-class ContractDataService {
+class CommentDataService {
     getByPublicationId(publicationId) {
-        return http.get(`/api/publication/${publicationId}/comments`);
+        return http.get(`/api/publications/${publicationId}/comments`);
     }
 
     createComment(commenterId, publicationId, text) {
@@ -10,4 +10,4 @@ class ContractDataService {
     }
 }
 
-export default new ContractDataService();
+export default new CommentDataService();

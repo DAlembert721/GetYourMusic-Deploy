@@ -18,7 +18,7 @@ class ContractDataService {
     }
 
     qualify(organizerId, contractId, musicianId, qualificationModel) {
-        return http.post(`/api/organizer/${organizerId}/contract/${contractId}/musician/${musicianId}/qualifications`,
+        return http.post(`/api/organizers/${organizerId}/contracts/${contractId}/musicians/${musicianId}/qualifications`,
             qualificationModel);
     }
 }
