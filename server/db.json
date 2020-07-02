@@ -1,0 +1,217 @@
+{
+  "musicians": [
+    {
+      "name": "Chayanne",
+      "lastName":"Ramos",
+      "rating":"5⭐",
+      "phone":"987654321",
+      "web":"www.chayanne.com",
+      "age":"35",
+      "district":"Miraflores",
+      "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sed elit maximus, laoreet enim sed, malesuada risus. Cras eu ultricies odio, vel commodo metus. Duis faucibus eget ante nec scelerisque. Curabitur efficitur molestie velit, et pellentesque turpis luctus a. Sed lobortis nisi dolor, aliquet imperdiet mauris vehicula vel. Aliquam cursus molestie urna, quis suscipit eros commodo tincidunt. Nam et erat libero. "
+    },
+    {
+      "name": "Benito",
+      "lastName":"El conejito",
+      "rating":"4.5⭐",
+      "phone":"123456789",
+      "web":"www.bunny.com",
+      "age":"25",
+      "district":"San Miguel",
+      "description": "Sed tellus ipsum, interdum ut aliquam eget, tincidunt quis felis. In eget magna a lorem congue finibus malesuada vel neque. Vivamus eu ipsum pretium, luctus urna quis, dictum tellus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+    }
+  ],
+  "publications": [
+    {
+      "id": 1,
+      "mediaUrl": "https://www.youtube.com/embed/_ZyD4n5zqxA"
+    }
+  ],
+  "regions": [
+    {
+      "id": 1,
+      "name": "Lima"
+    },
+    {
+      "id": 2,
+      "name": "Arequipa"
+    }
+  ],
+  "cities": [
+    {
+      "id": 1,
+      "name": "Lima",
+      "regionId": 1
+    }
+  ],
+  "districts": [
+    {
+      "id": 1,
+      "name": "Lima",
+      "cityId": 1
+    },
+    {
+      "id": 2,
+      "name": "Jesus Maria",
+      "cityId": 1
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "email": "dasds@get.com",
+      "password": "safdfsdf"
+    },
+    {
+      "email": "sasdadsa",
+      "password": "dsadasdsad",
+      "id": 2
+    },
+    {
+      "email": "dsadsd",
+      "password": "dasdsad",
+      "id": 3
+    },
+    {
+      "email": "xzczx",
+      "password": "czxczxc",
+      "id": 4
+    },
+    {
+      "email": "dsadas",
+      "password": "dsadas",
+      "id": 5
+    },
+    {
+      "email": "dasdsa",
+      "password": "dsadas",
+      "id": 6
+    },
+    {
+      "email": "sasds",
+      "password": "dasdasd",
+      "id": 7
+    },
+    {
+      "email": "sadasd",
+      "password": "dsadsadsa",
+      "id": 8
+    },
+    {
+      "email": "wyhujk",
+      "password": "69542332",
+      "id": 9
+    },
+    {
+      "email": "asdhdfg",
+      "password": "adsfhdfgsdf",
+      "id": 10
+    },
+    {
+      "email": "asdhdfg",
+      "password": "adsfhdfgsdf",
+      "id": 11
+    },
+    {
+      "email": "asdhdfg",
+      "password": "adsfhdfgsdf",
+      "id": 12
+    },
+    {
+      "email": "asdhdfg",
+      "password": "adsfhdfgsdf",
+      "id": 13
+    },
+    {
+      "email": "asdhdfg",
+      "password": "adsfhdfgsdf",
+      "id": 14
+    },
+    {
+      "email": "asdhdfg",
+      "password": "adsfhdfgsdf",
+      "id": 15
+    }
+  ],
+  "contracts": [
+    {
+      "id": 1,
+      "name": "The perfect event",
+      "paymentAmount": 60,
+      "address": "My house",
+      "reference": "Next to my neighbour",
+      "startDate": "2020-06-12T21:00:00",
+      "endData": "2020-06-12T24:00:00",
+      "state": "with pending work",
+      "organizerFullName": "Angel"
+    },
+    {
+      "id": 2,
+      "name": "The perfect event",
+      "paymentAmount": 60,
+      "address": "My house",
+      "reference": "Next to my neighbour",
+      "startDate": "2020-06-12T21:00:00",
+      "endData": "2020-06-12T24:00:00",
+      "state": "without answer",
+      "organizerFullName": "Carlos"
+    },
+    {
+      "id": 3,
+      "name": "The perfect event",
+      "paymentAmount": 60,
+      "address": "My house",
+      "reference": "Next to my neighbour",
+      "startDate": "2020-06-12T21:00:00",
+      "endData": "2020-06-12T24:00:00",
+      "state": "with pending work",
+      "organizerFullName": "Jason"
+    },
+    {
+      "id": 4,
+      "name": "The perfect event",
+      "paymentAmount": 60,
+      "address": "My house",
+      "reference": "Next to my neighbour",
+      "startDate": "2020-06-12T21:00:00",
+      "endData": "2020-06-12T24:00:00",
+      "state": "without answer",
+      "organizerFullName": "Pedro"
+    },
+    {
+      "id": 5,
+      "name": "The perfect event",
+      "paymentAmount": 60,
+      "address": "My house",
+      "reference": "Next to my neighbour",
+      "startDate": "2020-06-12T21:00:00",
+      "endData": "2020-06-12T24:00:00",
+      "state": "without answer",
+      "organizerFullName": "Stefano"
+    },
+    {
+      "id": 6,
+      "name": "The perfect event",
+      "paymentAmount": 60,
+      "address": "My house",
+      "reference": "Next to my neighbour",
+      "startDate": "2020-06-12T21:00:00",
+      "endData": "2020-06-12T24:00:00",
+      "state": "without answer",
+      "organizerFullName": "Sebastian"
+    },
+    {
+      "id": 7,
+      "name": "The perfect event",
+      "paymentAmount": 60,
+      "address": "My house",
+      "reference": "Next to my neighbour",
+      "startDate": "2020-06-12T21:00:00",
+      "endData": "2020-06-12T24:00:00",
+      "state": "without answer",
+      "organizerFullName": "Luis"
+    }
+  ],
+
+  "accounts": []
+}
