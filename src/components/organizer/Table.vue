@@ -41,8 +41,8 @@
                 <template v-slot:expanded-item="{ headers }">
                     <td :colspan="headers.length" align="center">
                         <v-btn small left outlined color="purple lighten-2" @click="goToProfile">View Profile</v-btn>
-                        <v-btn small center outlined color="purple lighten-2">Send Message</v-btn>
-                        <v-btn small right outlined color="purple lighten-2">Contract</v-btn>
+                        <v-btn small center outlined color="purple lighten-2" @click="goToMessage">Send Message</v-btn>
+
                     </td>
                 </template>
             </v-data-table>
@@ -101,6 +101,9 @@
             },
             goToProfile() {
                 this.$router.push({name: 'visitor', params: {id: this.selectedItem.userId}});
+            },
+            goToMessage() {
+                this.$router.push({name: 'messages'});
             }
         }
     }

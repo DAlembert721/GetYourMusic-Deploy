@@ -43,6 +43,7 @@
     import MessagesList from "./messages/MessagesList";
     import NewMessageForm from "./messages/NewMessageForm";
     import FollowDataService from "../services/FollowDataService";
+    import MusicianDataService from "../services/MusicianDataService";
 
     export default {
         name: "Messages",
@@ -75,22 +76,42 @@
             },
             retrieveFollowers() {
                 this.followeds = [];
-                FollowDataService.getAllBYFollowerId(localStorage.getItem('id'))
+                if (localStorage.getItem('userType') === 'Musician'){
+                    FollowDataService.getAllBYFollowerId(localStorage.getItem('id'))
+                        .then(response => {
+                            const resources = response.data;
+                            resources.forEach(resource => {
+                                let user = {
+                                    name: resource.firstName + ' ' + resource.lastName,
+                                    id: resource.userId,
+                                }
+                                this.followeds.push(user);
+                            });
+                            console.log('results: ');
+                            console.log(resources);
+                        })
+                        .catch(e => {
+                            console.log(e);
+                        });
+                }
+                else if (localStorage.getItem('userType') === 'Organizer') {
+                    MusicianDataService.getAll()
                     .then(response => {
-                        const resources = response.data;
+                        let resources = response.data;
                         resources.forEach(resource => {
                             let user = {
                                 name: resource.firstName + ' ' + resource.lastName,
                                 id: resource.userId,
                             }
                             this.followeds.push(user);
-                        });
-                        console.log('results: ');
-                        console.log(resources);
+                        })
+
                     })
                     .catch(e => {
                         console.log(e);
                     });
+                }
+
 
 
             },
